@@ -152,7 +152,7 @@ ENV NVIDIA_DRIVER_CAPABILITIES compute,graphics,utility
 # Copy Nvidia ICD loader file into the container.
 COPY --from=builder /qdrant/lib/gpu/nvidia_icd.json /etc/vulkan/icd.d/
 # Override maintainer label. Nvidia base image have it's own maintainer label.
-LABEL maintainer="Qdrant Team <info@qdrant.tech>"
+LABEL maintainer="Hanzo AI <eng@hanzo.ai>"
 
 
 # Base images for Qdrant with amd GPU support.
@@ -160,7 +160,7 @@ FROM rocm/dev-ubuntu-22.04 AS qdrant-gpu-amd
 # Set non-interactive mode for apt-get.
 ENV DEBIAN_FRONTEND=noninteractive
 # Override maintainer label. AMD base image have it's own maintainer label.
-LABEL maintainer="Qdrant Team <info@qdrant.tech>"
+LABEL maintainer="Hanzo AI <eng@hanzo.ai>"
 
 
 FROM qdrant-${GPU:+gpu-}${GPU:-cpu} AS qdrant
@@ -236,11 +236,11 @@ ENV TZ=Etc/UTC \
 EXPOSE 6333
 EXPOSE 6334
 
-LABEL org.opencontainers.image.title="Qdrant"
-LABEL org.opencontainers.image.description="Official Qdrant image"
-LABEL org.opencontainers.image.url="https://qdrant.com/"
-LABEL org.opencontainers.image.documentation="https://qdrant.com/docs"
-LABEL org.opencontainers.image.source="https://github.com/qdrant/qdrant"
-LABEL org.opencontainers.image.vendor="Qdrant"
+LABEL org.opencontainers.image.title="Hanzo Vector"
+LABEL org.opencontainers.image.description="High-performance vector search engine for the Hanzo AI platform"
+LABEL org.opencontainers.image.url="https://hanzo.ai"
+LABEL org.opencontainers.image.documentation="https://github.com/hanzoai/vector"
+LABEL org.opencontainers.image.source="https://github.com/hanzoai/vector"
+LABEL org.opencontainers.image.vendor="Hanzo AI"
 
 CMD ["./entrypoint.sh"]
