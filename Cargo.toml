@@ -1,14 +1,11 @@
 [package]
-name = "qdrant"
+name = "hanzo-vector"
 version = "1.17.0"
-description = "Qdrant - Vector Search engine"
-authors = [
-    "Andrey Vasnetsov <andrey@vasnetsov.com>",
-    "Qdrant Team <info@qdrant.tech>",
-]
+description = "Hanzo Vector - High-performance vector search engine for the Hanzo AI platform"
+authors = ["Hanzo AI <eng@hanzo.ai>"]
 readme = "README.md"
-homepage = "https://qdrant.tech/"
-repository = "https://github.com/qdrant/qdrant"
+homepage = "https://hanzo.ai"
+repository = "https://github.com/hanzoai/vector"
 license = "Apache-2.0"
 edition = "2024"
 rust-version = "1.92"
@@ -395,7 +392,7 @@ opt-level = 3
 opt-level = 3
 
 [package.metadata.deb]
-maintainer = "Qdrant Team <team@qdrant.com>"
+maintainer = "Hanzo AI <eng@hanzo.ai>"
 depends = "$auto"
 default-features = true
 features = ["deb"]
@@ -403,7 +400,7 @@ license-file = "LICENSE"
 section = "database"
 priority = "optional"
 extended-description = """\
-Qdrant is a high-performance vector search engine. It is designed to index and search large collections of high-dimensional vectors.\
+Hanzo Vector is a high-performance vector search engine for the Hanzo AI platform. Based on Qdrant.\
 """
 assets = [
     [
