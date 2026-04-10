@@ -127,10 +127,7 @@ async fn handle_list_collections(dispatcher: &Dispatcher) -> (u16, Vec<u8>) {
 }
 
 /// Expects JSON: {"name": "...", "params": { ... CreateCollection ... }}
-async fn handle_create_collection(
-    payload: &[u8],
-    dispatcher: &Dispatcher,
-) -> (u16, Vec<u8>) {
+async fn handle_create_collection(payload: &[u8], dispatcher: &Dispatcher) -> (u16, Vec<u8>) {
     #[derive(serde::Deserialize)]
     struct Req {
         name: String,
@@ -150,9 +147,7 @@ async fn handle_create_collection(
         .submit_collection_meta_op(CollectionMetaOperations::CreateCollection(op), auth, None)
         .await
     {
-        Ok(result) => ok_response(
-            &serde_json::json!({"result": result}),
-        ),
+        Ok(result) => ok_response(&serde_json::json!({"result": result})),
         Err(e) => err_response(&e.to_string()),
     }
 }
@@ -194,9 +189,7 @@ async fn handle_upsert(payload: &[u8], dispatcher: &Dispatcher) -> (u16, Vec<u8>
     )
     .await
     {
-        Ok((result, _usage)) => {
-            ok_response(&serde_json::to_value(&result).unwrap_or_default())
-        }
+        Ok((result, _usage)) => ok_response(&serde_json::to_value(&result).unwrap_or_default()),
         Err(e) => err_response(&e.to_string()),
     }
 }
@@ -306,9 +299,7 @@ async fn handle_get(payload: &[u8], dispatcher: &Dispatcher) -> (u16, Vec<u8>) {
 
     let request = PointRequestInternal {
         ids: req.ids,
-        with_payload: Some(WithPayloadInterface::Bool(
-            req.with_payload.unwrap_or(true),
-        )),
+        with_payload: Some(WithPayloadInterface::Bool(req.with_payload.unwrap_or(true))),
         with_vector: req.with_vector.unwrap_or(false).into(),
     };
 
@@ -358,10 +349,7 @@ pub fn init(
     runtime: Handle,
 ) -> io::Result<()> {
     runtime.block_on(async {
-        let addr = SocketAddr::from((
-            settings.service.host.parse::<IpAddr>().unwrap(),
-            zap_port,
-        ));
+        let addr = SocketAddr::from((settings.service.host.parse::<IpAddr>().unwrap(), zap_port));
         let listener = TcpListener::bind(addr).await?;
         log::info!("ZAP transport listening on {zap_port}");
 
