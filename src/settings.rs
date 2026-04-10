@@ -28,6 +28,9 @@ pub struct ServiceConfig {
     pub http_port: u16,
     pub grpc_port: Option<u16>, // None means that gRPC is disabled
 
+    /// ZAP binary RPC port. If `null` - ZAP is disabled. Default: null
+    pub zap_port: Option<u16>,
+
     /// If specified, qdrant will serve a separate service for `/metrics` on this port.
     /// Separate port is not protected by API keys and dedicated for internal monitoring systems.
     /// This port should not be exposed to untrusted networks.

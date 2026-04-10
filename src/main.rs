@@ -9,6 +9,7 @@ mod snapshots;
 mod startup;
 mod tonic;
 mod tracing;
+mod zap;
 
 use std::io::Error;
 use std::sync::Arc;
@@ -611,6 +612,15 @@ fn main() -> anyhow::Result<()> {
     }
 
     //
+    // ZAP binary RPC server
+    //
+
+    // Clone before gRPC takes ownership
+    let zap_dispatcher = dispatcher_arc.clone();
+    let zap_runtime = runtime_handle.clone();
+    let zap_port = settings.service.zap_port;
+
+    //
     // gRPC server
     //
 
@@ -634,6 +644,22 @@ fn main() -> anyhow::Result<()> {
         handles.push(handle);
     } else {
         log::info!("gRPC endpoint disabled");
+    }
+
+    if let Some(zap_port) = zap_port {
+        let settings = settings.clone();
+        let handle = thread::Builder::new()
+            .name("zap".to_string())
+            .spawn(move || {
+                log_err_if_any(
+                    "ZAP",
+                    zap::init(zap_dispatcher, settings, zap_port, zap_runtime),
+                )
+            })
+            .unwrap();
+        handles.push(handle);
+    } else {
+        log::info!("ZAP endpoint disabled");
     }
 
     #[cfg(feature = "service_debug")]
