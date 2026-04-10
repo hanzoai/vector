@@ -257,6 +257,12 @@ service:
   # Comment to disable gRPC:
   grpc_port: 6334
 
+  # ZAP binary RPC port.
+  # Zero-copy binary frame protocol over raw TCP.
+  # If `null` - ZAP is disabled. Default: 6335
+  # Comment to disable ZAP:
+  zap_port: 6335
+
   # Enable CORS headers in REST API.
   # If enabled, browsers would be allowed to query REST endpoints regardless of query origin.
   # More info: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
