@@ -1,7 +1,9 @@
 # LLM.md - Hanzo Vector
 
 ## Overview
-High-performance vector search engine for the Hanzo AI platform. Based on [Qdrant](https://github.com/qdrant/qdrant).
+High-performance vector search engine for the Hanzo AI platform.
+
+**Upstream**: [Qdrant](https://github.com/qdrant/qdrant) (Apache-2.0).
 
 ## Tech Stack
 - **Language**: Rust
