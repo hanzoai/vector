@@ -1,3 +1,5 @@
+<p align="center"><img src=".github/hero.svg" alt="vector" width="880"></p>
+
 # Hanzo Vector
 
 High-performance vector database for AI embeddings and similarity search.
