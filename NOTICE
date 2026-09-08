@@ -1,0 +1,69 @@
+Hanzo Vector
+Copyright (c) 2026 Hanzo AI, Inc.
+
+This product includes software from Qdrant (https://github.com/qdrant/qdrant),
+licensed under Apache-2.0:
+
+    Copyright Qdrant Team <info@qdrant.tech>
+    Copyright Andrey Vasnetsov <andrey@vasnetsov.com>
+
+PROVENANCE
+
+Forked from https://github.com/qdrant/qdrant. Established from this
+repository, not from documentation:
+
+  - The history root of this branch is Qdrant's own first commit
+    (e4452500a, 2020-05-30, Andrey Vasnetsov, "init"), and the full upstream
+    history — 5421 commits — is present.
+  - The last upstream commit carried here is a5a99b784 (2026-02-19,
+    Tim Visée), immediately after 7ac17b142 "Bump version to 1.17.0". The
+    fork base is therefore Qdrant 1.17.0, which lib/api/Cargo.toml still
+    reports as its version.
+  - The rebrand is d86e4dc55 (2026-03-03, "chore: rebrand to Hanzo Vector"),
+    and only seven commits on this branch are Hanzo's.
+  - 13 of the 14 crates under lib/ still declare their upstream authors,
+    "Andrey Vasnetsov" and "Qdrant Team <info@qdrant.tech>", and all of them
+    declare license = "Apache-2.0".
+
+Attribution above uses the names the source itself carries. Qdrant's LICENSE
+is the bare Apache-2.0 text with no copyright line (its appendix still reads
+"Copyright [yyyy] [name of copyright owner]"), and no source file in the tree
+carries a copyright header, so the manifests are the only in-repository
+statement of authorship. The legal entity behind the project is not named
+anywhere in this repository and is recorded here as UNVERIFIED: settling it
+requires a statement from Qdrant, not an inference. An earlier draft of this
+NOTICE said "Qdrant Solutions GmbH"; that string appears nowhere in Qdrant's
+source or licence and was not carried forward.
+
+Upstream Qdrant ships no NOTICE file — verified by searching the whole
+history, where the only NOTICE blobs are the two Hanzo-authored ones. There
+are therefore no Apache-2.0 §4(d) attributions to propagate, and this file
+exists to identify the upstream, not to relay one.
+
+LICENSE is Qdrant's, untouched since their own "Create LICENSE" commit
+(76ea87a82, 2021-04-08). It is deliberately not edited: with no upstream
+copyright line in it there is nothing there to preserve, and attribution
+belongs in NOTICE.
+
+DEVIATIONS
+
+  - Rebranded to "Hanzo Vector"; the binary and root package are renamed from
+    qdrant to hanzo-vector (d86e4dc55).
+  - The root Cargo.toml's authors field was rewritten in that same commit from
+    ["Andrey Vasnetsov", "Qdrant Team"] to ["Hanzo AI <eng@hanzo.ai>"]. That is
+    the one place upstream authorship was removed; it is restored to the record
+    here, and the 13 lib/ crates were never changed.
+  - ZAP binary RPC transport added on port 6335, alongside upstream's REST
+    (6333) and gRPC (6334) (fcc14c9ce).
+  - Agent documentation added (LLM.md, with CLAUDE.md and AGENTS.md as
+    symlinks); docker-compose.yml renamed to compose.yml.
+  - Config keys, storage layout and the REST/gRPC API surface are upstream's
+    and are unchanged.
+
+BRANCHES
+
+The code lives on `master`. The repository's default branch, `main`, is an
+unrelated five-file stub (README, LLM.md, CLAUDE.md, .github/hero.svg,
+LICENSE) that shares no history with this branch and carries no source. Its
+LICENSE declared MIT, which is corrected on that branch to match what this
+product actually is.
