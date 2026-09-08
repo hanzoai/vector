@@ -27,6 +27,14 @@ docker run -p 6333:6333 -p 6334:6334 hanzo/vector
 
 See the [documentation](https://hanzo.ai/docs/vector) for detailed guides and API reference.
 
+## Source
+
+The engine lives on the `master` branch. This branch carries the project
+description only.
+
 ## License
 
-MIT License - see [LICENSE](LICENSE) for details.
+Apache-2.0 - see [LICENSE](LICENSE) for details.
+
+Hanzo Vector is derived from [Qdrant](https://github.com/qdrant/qdrant),
+which is Apache-2.0. See [NOTICE](NOTICE) for attribution.
