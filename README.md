@@ -2,6 +2,8 @@
 
 # Hanzo Vector
 
+[![Open in Hanzo](https://hanzo.app/badges/open-in-hanzo.svg)](https://hanzo.app/dev/open?repo=github.com/hanzoai/vector&ref=main&action=open) [![Edit with Hanzo](https://hanzo.app/badges/edit-with-hanzo.svg)](https://hanzo.app/dev/open?repo=github.com/hanzoai/vector&ref=main&action=edit)
+
 High-performance vector database for AI embeddings and similarity search.
 
 ## Overview
